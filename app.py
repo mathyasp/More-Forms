@@ -56,7 +56,9 @@ def compliments():
 def compliments_results():
     """Show the user some compliments."""
     context = {
-        # TODO: Enter your context variables here.
+        "users_name": request.args.get("users_name"),
+        "wants_compliments": request.args.get("wants_compliments"),
+        "compliments_sublist": random.sample(list_of_compliments, int(request.args.get("num_compliments"))),
     }
 
     return render_template('compliments_results.html', **context)
